@@ -6,25 +6,25 @@
  * Only edit this file if you have direct access to it on your server (to fix errors if they happen).
  */
 /* 
-THREEK ==  360Kompakt
+PHOTO ==  360Kompakt
 */
-define( 'THREEK_THEME_URL', get_stylesheet_directory_uri() );
-define( 'THREEK_THEME_PATH', get_stylesheet_directory() );
-define( 'THREEK_VERSION', '1.0.0' );
+define( 'PHOTO_THEME_URL', get_stylesheet_directory_uri() );
+define( 'PHOTO_THEME_PATH', get_stylesheet_directory() );
+define( 'PHOTO_VERSION', '1.0.0' );
 
-function threek_enqueue_child_theme_styles() {
+function photo_enqueue_child_theme_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'threek-style', THREEK_THEME_URL . '/build/main.css', ['parent-style'], filemtime( THREEK_THEME_PATH . '/build/main.css' ) );
-    wp_enqueue_script( 'threek-slider', THREEK_THEME_URL . '/build/slider.js', [], filemtime( THREEK_THEME_PATH . '/build/slider.js' ), true );
+    wp_enqueue_style( 'photo-style', PHOTO_THEME_URL . '/build/main.css', ['parent-style'], filemtime( PHOTO_THEME_PATH . '/build/main.css' ) );
+    wp_enqueue_script( 'photo-slider', PHOTO_THEME_URL . '/build/slider.js', [], filemtime( PHOTO_THEME_PATH . '/build/slider.js' ), true );
 }
-add_action( 'wp_enqueue_scripts', 'threek_enqueue_child_theme_styles' );
+add_action( 'wp_enqueue_scripts', 'photo_enqueue_child_theme_styles' );
 
 function backend_assets() {
 	wp_enqueue_script( 
-        'threek-be-js', 
-        THREEK_THEME_URL . '/build/backend.js', 
+        'photo-be-js', 
+        PHOTO_THEME_URL . '/build/backend.js', 
         ['wp-block-editor', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-api', 'wp-polyfill'], 
-        filemtime( THREEK_THEME_PATH . '/build/backend.js' ), 
+        filemtime( PHOTO_THEME_PATH . '/build/backend.js' ), 
         true 
     );
 }
@@ -35,27 +35,27 @@ add_image_size( 'widget-slider-450', 450, 263, true );
 
 function add_custom_sizes_to_gutenberg( $sizes ) {
   return array_merge( $sizes, [
-    'widget-slider-770' => __('Slider 770', 'threek'),
-    'widget-slider-450' => __('Slider 450', 'threek'),
+    'widget-slider-770' => __('Slider 770', 'photo'),
+    'widget-slider-450' => __('Slider 450', 'photo'),
   ] );
 }
 add_filter( 'image_size_names_choose', 'add_custom_sizes_to_gutenberg' );
 
 
 // includes
-require_once THREEK_THEME_PATH . '/classes/CheckedBy.php';
+require_once PHOTO_THEME_PATH . '/classes/CheckedBy.php';
 add_action( 'init', function() {
     new \Threek\CheckedBy;
 } );
 
-require_once THREEK_THEME_PATH . '/shortcodes.php';
+require_once PHOTO_THEME_PATH . '/shortcodes.php';
 
 
 // Change 404 Page Title
 add_filter( 'generate_404_title','generate_custom_404_title' );
 function generate_custom_404_title()
 {
-      return __('<center>Nichts gefunden</center>', 'threek');
+      return __('<center>Nichts gefunden</center>', 'photo');
 }
 
 
@@ -63,7 +63,7 @@ function generate_custom_404_title()
 add_filter( 'generate_404_text','generate_custom_404_text' );
 function generate_custom_404_text()
 {
-      return __('<center>Haben Sie sich verirrt? Nutzen Sie unsere Suche oder klicken Sie auf einen unserer neuesten Beiträge.</center>', 'threek');
+      return __('<center>Haben Sie sich verirrt? Nutzen Sie unsere Suche oder klicken Sie auf einen unserer neuesten Beiträge.</center>', 'photo');
 }
 
 
@@ -87,7 +87,7 @@ function show_author_box(){
     ?>
         <div class="author-box">
                 <div class="author-box-avatar">
-                    <img alt=<?php _e("Autorenfoto", "threek"); ?> title=<?php _e("Autorenfoto", "threek"); ?> src=<?php echo get_avatar_url($author_id); ?>/>
+                    <img alt=<?php _e("Autorenfoto", "photo"); ?> title=<?php _e("Autorenfoto", "photo"); ?> src=<?php echo get_avatar_url($author_id); ?>/>
                 </div>
                 <div class="author-box-meta">
                     <div class="author-box_name"><?php echo '<span>'. get_the_author() . '</span>'; ?></div>
@@ -147,7 +147,7 @@ function show_featured_posts(){
                     global $post;  
                     $author_id = get_post_field('post_author' , $post->ID); 
 					if(!is_archive()) {$linkToAuthor = '&nbsp;<a href="'.get_author_posts_url($author_id).'">';}
-                    echo '<img alt="' . __("Autorenfoto", "threek") . '" title="' . __("Autorenfoto", "threek") . '" src="'.get_avatar_url($author_id).'"/> ' . __("Von ", "threek") . $linkToAuthor . get_author_name($author_id).'</a>';
+                    echo '<img alt="' . __("Autorenfoto", "photo") . '" title="' . __("Autorenfoto", "photo") . '" src="'.get_avatar_url($author_id).'"/> ' . __("Von ", "photo") . $linkToAuthor . get_author_name($author_id).'</a>';
 
                     ?>
                 </div>
@@ -174,7 +174,7 @@ function show_featured_posts(){
 		endif;
 
 		?>
-        <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('Weiterlesen >', 'threek'); ?></a></div>
+        <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('Weiterlesen >', 'photo'); ?></a></div>
 	</div>
 </article>
 
@@ -195,7 +195,7 @@ add_action( 'generate_before_main_content', function() {
 	?>
 	<div class="home-headline">
 		<div class="wp-block-group__inner-container">
-			<h2><?php _e('Aktuelle Beiträge', 'threek'); ?></h2>
+			<h2><?php _e('Aktuelle Beiträge', 'photo'); ?></h2>
 		</div>
 	</div>
 	<?php
