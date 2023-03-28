@@ -408,5 +408,15 @@ body.author .author_bio_section .author-info {
     padding: 0px 30px 0px 30px;
   }
 }
+/* PV */
+/* Hide Submenu-Arrows in Main-Menu */
+@media (min-width: 769px) {
+  #primary-menu .menu-item-has-children .dropdown-menu-toggle {
+    display: none;
+  }
+  #primary-menu .main-navigation .main-nav ul li.menu-item-has-children a {
+    padding-right: 10px;
+  }
+}
 
 /*# sourceMappingURL=main.css.map*/

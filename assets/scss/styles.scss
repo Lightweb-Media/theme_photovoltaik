@@ -352,4 +352,16 @@ body.author{
     
 }
 
+/* PV */
+
+/* Hide Submenu-Arrows in Main-Menu */
+@media (min-width: 769px) {
+    #primary-menu .menu-item-has-children .dropdown-menu-toggle {
+        display: none;
+    }
+    #primary-menu .main-navigation .main-nav ul li.menu-item-has-children a {
+        padding-right: 10px;
+    }
+}
+
 
