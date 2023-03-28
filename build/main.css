@@ -1,5 +1,5 @@
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./assets/scss/main.scss ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./assets/scss/main.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************/
 .sidebar .inside-right-sidebar {
   position: sticky;
@@ -111,6 +111,10 @@ img {
   border-radius: 4px;
 }
 
+.margin-auto {
+  margin-inline: auto;
+}
+
 .author-info {
   display: flex;
   align-items: center;
@@ -180,42 +184,10 @@ img {
   font-weight: 600;
 }
 
-.main-navigation {
-  border-bottom: 1px solid var(--border);
-}
-@media (min-width: 960px) {
-  .main-navigation {
-    border-bottom: none;
-  }
-}
-.main-navigation #primary-menu {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-@media (min-width: 1px) and (max-width: 960px) {
-  .main-navigation #primary-menu {
-    border-bottom: none;
-  }
-}
 .main-navigation #primary-menu li a {
   text-align: center;
 }
-@media (min-width: 960px) {
-  .main-navigation #primary-menu li:hover a {
-    font-weight: 700;
-    box-shadow: inset 0px -2px 0px 0px rgb(0, 0, 0);
-  }
-}
 
-@media (min-width: 960px) {
-  .navigation-branding, .main-nav {
-    width: 100%;
-    justify-content: center;
-  }
-  #menu-hauptmenu {
-    justify-content: center;
-  }
-}
 /* Styles for Archives */
 @media (min-width: 1200px) {
   body:not(.single, .page) #primary article.post .inside-article, .featured-posts article.post .inside-article {
@@ -289,14 +261,6 @@ body.single-post .author-info {
   border-radius: 0 3px 3px 0;
   padding: 7px 10px 5px;
   font-weight: 600;
-}
-
-.site-footer .footer-widgets .inside-footer-widgets hr {
-  max-width: 30px;
-  margin: 0px;
-}
-.site-footer .footer-widgets .widget {
-  margin-bottom: 10px;
 }
 
 /* Pagination */

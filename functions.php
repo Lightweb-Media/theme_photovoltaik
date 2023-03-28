@@ -6,7 +6,7 @@
  * Only edit this file if you have direct access to it on your server (to fix errors if they happen).
  */
 /* 
-PHOTO ==  360Kompakt
+PHOTO ==  www.photovoltaik.sh
 */
 define( 'PHOTO_THEME_URL', get_stylesheet_directory_uri() );
 define( 'PHOTO_THEME_PATH', get_stylesheet_directory() );
@@ -76,7 +76,7 @@ function wpdocs_my_search_form( $form ) {
 add_filter( 'get_search_form', 'wpdocs_my_search_form' );
 
 
-// Author Box
+/* Author Box
 function show_author_box(){ 
 
     global $post;  
@@ -98,7 +98,7 @@ function show_author_box(){
         <?php 
     }
 }
-add_action('generate_after_content', 'show_author_box');
+add_action('generate_after_content', 'show_author_box');*/
 
 
 // 3 featured posts on home page
