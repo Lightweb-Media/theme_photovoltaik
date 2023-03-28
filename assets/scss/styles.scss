@@ -364,4 +364,16 @@ body.author{
     }
 }
 
+/* Footer */
+.site-footer{
+    .wp-block-categories-list, .wp-block-latest-posts{
+        margin-left: 0px;
 
+        li{
+            margin-bottom: 10px;
+            &::marker{display:none;}
+        }
+        
+        
+    }
+}

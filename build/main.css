@@ -418,5 +418,15 @@ body.author .author_bio_section .author-info {
     padding-right: 10px;
   }
 }
+/* Footer */
+.site-footer .wp-block-categories-list, .site-footer .wp-block-latest-posts {
+  margin-left: 0px;
+}
+.site-footer .wp-block-categories-list li, .site-footer .wp-block-latest-posts li {
+  margin-bottom: 10px;
+}
+.site-footer .wp-block-categories-list li::marker, .site-footer .wp-block-latest-posts li::marker {
+  display: none;
+}
 
 /*# sourceMappingURL=main.css.map*/
