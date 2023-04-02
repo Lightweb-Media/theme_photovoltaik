@@ -16,6 +16,7 @@ function photo_enqueue_child_theme_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'photo-style', PHOTO_THEME_URL . '/build/main.css', ['parent-style'], filemtime( PHOTO_THEME_PATH . '/build/main.css' ) );
     wp_enqueue_script( 'photo-slider', PHOTO_THEME_URL . '/build/slider.js', [], filemtime( PHOTO_THEME_PATH . '/build/slider.js' ), true );
+    wp_enqueue_script( 'photo-caluclator-toggle', PHOTO_THEME_URL . '/build/calculator-toggle.js', [], filemtime( PHOTO_THEME_PATH . '/build/calculator-toggle.js' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'photo_enqueue_child_theme_styles' );
 
@@ -201,3 +202,44 @@ add_action( 'generate_before_main_content', function() {
 	<?php
 	}
 } );
+
+
+/**** SCHEMA ADDON ***/
+add_action( 'after_setup_theme', function () {
+    add_filter( 'wp_schema_pro_schema_meta_fields', function ($fields){
+        /**
+         * Add ArticleBody
+         * @param  array $fields Mapping fields array.
+         * @return array
+         */
+        $fields['bsf-aiosrs-article']['subkeys']['articleBody'] = array( // `bsf-aiosrs-book` used for Book, `bsf-aiosrs-event` will for Event like that.
+            'label'    => esc_html__( 'articleBody', 'wp-schema-pro' ), // Label to display in Mapping fields
+            'type'     => 'text', // text/date/image
+            'default'  => 'none',
+            'required' => true, // true/false.
+        );
+     
+        return $fields;
+    } );
+    add_filter( 'wp_schema_pro_schema_article', function ($schema, $data, $post) {
+            /**
+             * Mapping extra field for schema markup.
+             *
+             * @param  array $schema Schema array.
+             * @param  array $data   Mapping fields array.
+             * @return array
+             */
+        if ( isset( $data['articleBody'] ) && ! empty( $data['articleBody'] ) ) {
+            // For date/text type field
+            $content = preg_replace( '/<!--(.|\s)*?-->/', '', $data['articleBody'] );
+            $content = strip_tags( $content );
+            $schema['articleBody'] = esc_html( $content );
+            // $schema['articleBody'] = esc_html( $data['articleBody'] );
+     
+            // For image type field
+            // $schema['workExample'] = BSF_AIOSRS_Pro_Schema_Template::get_image_schema( $data['work-example'] );
+        }
+        return $schema;
+    }, 10, 3 );
+});
+ 

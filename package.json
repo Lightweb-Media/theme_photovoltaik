@@ -2,8 +2,8 @@
 	"name": "theme_photovoltaik_sh",
 	"description": "theme_photovoltaik_sh Childtheme from generatepress",
 	"scripts": {
-		"dev": "wp-scripts start assets/js/main.js assets/js/slider.js assets/js/backend/backend.js",
-		"build": "wp-scripts build assets/js/main.js assets/js/slider.js assets/js/backend/backend.js"
+		"dev": "wp-scripts start assets/js/main.js assets/js/calculator-toggle.js assets/js/backend/backend.js",
+		"build": "wp-scripts build assets/js/main.js assets/js/calculator-toggle.js assets/js/backend/backend.js"
 	},
 	"author": "Rene Kutter",
 	"license": "GPL-2.0",

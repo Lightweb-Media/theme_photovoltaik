@@ -184,8 +184,8 @@ img {
   font-weight: 600;
 }
 
-.main-navigation #primary-menu li a {
-  text-align: center;
+#sticky-navigation, .site-header {
+  border-bottom: 3px solid var(--accent);
 }
 
 /* Styles for Archives */
@@ -408,7 +408,6 @@ body.author .author_bio_section .author-info {
     padding: 0px 30px 0px 30px;
   }
 }
-/* PV */
 /* Hide Submenu-Arrows in Main-Menu */
 @media (min-width: 769px) {
   #primary-menu .menu-item-has-children .dropdown-menu-toggle {
@@ -418,6 +417,23 @@ body.author .author_bio_section .author-info {
     padding-right: 10px;
   }
 }
+/* PV Calculator */
+.hero-width-calculator {
+  width: 100%;
+  transition: transform 0.2s ease-out;
+  display: flex;
+}
+.hero-width-calculator div:nth-child(2) {
+  transition: transform 0.2s ease-out;
+  width: 100%;
+  flex-shrink: 0;
+}
+.hero-width-calculator div:nth-child(1) {
+  transition: transform 0.2s ease-in;
+  width: 100%;
+  flex-shrink: 0;
+}
+
 /* Footer */
 .site-footer .wp-block-categories-list, .site-footer .wp-block-latest-posts {
   margin-left: 0px;
