@@ -1,6 +1,6 @@
 // General
 img {border-radius: 4px;}
-.margin-auto{margin-inline: auto;}
+/*.margin-auto{margin-inline: auto;}
 
 // Author Infos
 .author-info {
@@ -83,13 +83,8 @@ img {border-radius: 4px;}
     }
 }
 
-// Main Navigation 
-#sticky-navigation, .site-header{
-    border-bottom: 3px solid var(--accent);
-}
 
-
-/* Styles for Archives */
+/* Styles for Archives 
 body:not(.single, .page) #primary, .featured-posts{
     article.post .inside-article{
         @media (min-width: 1200px) {
@@ -151,13 +146,13 @@ body.single-post{
         margin: 36px 0px 0px 0px;
     }
 }
-/* END - Styles for Archives */
+/* END - Styles for Archives 
 
 .inside-article .featured-image img{
     width: 100%;
 }
 
-/* Search bar */
+/* Search bar 
 .wp-block-search__inside-wrapper{
     border: none;
     input{
@@ -177,7 +172,7 @@ body.single-post{
 }
 
 
-/* Pagination */
+/* Pagination 
 .paging-navigation .nav-links>*{
     font-size: $button-text;
     background: var(--accent-2);
@@ -193,7 +188,7 @@ body.single-post{
     opacity: 0.6;
 }
 
-/* Style page title */
+/* Style page title 
 .page-header, .home-headline{
     padding-bottom: 0px !important;
     h1, h2{
@@ -204,7 +199,7 @@ body.single-post{
     padding-bottom: 0px;
 }
 
-/* Post Single */
+/* Post Single 
 body.single-post{
 
     h1.entry-title{
@@ -225,12 +220,12 @@ body.single-post{
     }
 }
 
-/* Add ".." after excerpt */
+/* Add ".." after excerpt 
 .entry-summary p:after{
     content: '..';
 }
 
-/* 404 Page */
+/* 404 Page 
 body.error404{
     .entry-title center:after{
         display: block;
@@ -252,7 +247,7 @@ body.error404{
     }
 }
 
-/* Author Page */
+/* Author Page 
 body.author{
     .author_bio_section{
         display: flex;
@@ -347,6 +342,12 @@ body.author{
         padding: 0px 30px 0px 30px;
     }
     
+}
+*/
+
+// Main Navigation 
+#sticky-navigation, .site-header{
+    border-bottom: 3px solid var(--accent);
 }
 
 /* Hide Submenu-Arrows in Main-Menu */

@@ -15,12 +15,12 @@ define( 'PHOTO_VERSION', '1.0.0' );
 function photo_enqueue_child_theme_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'photo-style', PHOTO_THEME_URL . '/build/main.css', ['parent-style'], filemtime( PHOTO_THEME_PATH . '/build/main.css' ) );
-    wp_enqueue_script( 'photo-slider', PHOTO_THEME_URL . '/build/slider.js', [], filemtime( PHOTO_THEME_PATH . '/build/slider.js' ), true );
-    wp_enqueue_script( 'photo-caluclator-toggle', PHOTO_THEME_URL . '/build/calculator-toggle.js', [], filemtime( PHOTO_THEME_PATH . '/build/calculator-toggle.js' ), true );
+    //wp_enqueue_script( 'photo-slider', PHOTO_THEME_URL . '/build/slider.js', [], filemtime( PHOTO_THEME_PATH . '/build/slider.js' ), true );
+    wp_enqueue_script( 'photo-calculator-toggle', PHOTO_THEME_URL . '/build/calculator-toggle.js', [], filemtime( PHOTO_THEME_PATH . '/build/calculator-toggle.js' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'photo_enqueue_child_theme_styles' );
 
-function backend_assets() {
+/*function backend_assets() {
 	wp_enqueue_script( 
         'photo-be-js', 
         PHOTO_THEME_URL . '/build/backend.js', 
@@ -30,6 +30,7 @@ function backend_assets() {
     );
 }
 add_action('admin_enqueue_scripts', 'backend_assets');
+*/
 
 add_image_size( 'widget-slider-770', 770, 450, true );
 add_image_size( 'widget-slider-450', 450, 263, true );
@@ -52,7 +53,7 @@ add_action( 'init', function() {
 require_once PHOTO_THEME_PATH . '/shortcodes.php';
 
 
-// Change 404 Page Title
+/* Change 404 Page Title
 add_filter( 'generate_404_title','generate_custom_404_title' );
 function generate_custom_404_title()
 {
@@ -101,7 +102,7 @@ function show_author_box(){
 }
 add_action('generate_after_content', 'show_author_box');*/
 
-
+/*
 // 3 featured posts on home page
 function show_featured_posts(){ 
     if ( is_front_page() && is_home() ) {
