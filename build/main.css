@@ -185,6 +185,9 @@ img {
   flex: 1;
   gap: 10px;
 }
+.related-post img {
+  width: 100%;
+}
 
 .cf7-form {
   display: grid;
