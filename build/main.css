@@ -111,10 +111,24 @@ img {
   border-radius: 4px;
 }
 
+.site-content {
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+
 #sticky-navigation, .site-header {
   border-bottom: 3px solid var(--accent);
 }
 
+#sticky-navigation, .site-header {
+  padding-inline: 20px;
+}
+
+@media (max-width: 1240px) {
+  body:not(.full-width-content) .site {
+    padding-inline: 20px;
+  }
+}
 /* Hide Submenu-Arrows in Main-Menu */
 @media (min-width: 769px) {
   #primary-menu .menu-item-has-children .dropdown-menu-toggle {
@@ -141,6 +155,10 @@ img {
   flex-shrink: 0;
 }
 
+.pv-calculator-toggle {
+  cursor: pointer;
+}
+
 /* Footer */
 .site-footer .wp-block-categories-list, .site-footer .wp-block-latest-posts {
   margin-left: 0px;
@@ -150,6 +168,82 @@ img {
 }
 .site-footer .wp-block-categories-list li::marker, .site-footer .wp-block-latest-posts li::marker {
   display: none;
+}
+
+.related-posts {
+  display: flex;
+  gap: 10px;
+}
+@media (max-width: 550px) {
+  .related-posts {
+    flex-direction: column;
+  }
+}
+
+.related-post {
+  flex: 1;
+  gap: 10px;
+}
+
+.cf7-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  grid-template-areas: "Namee Namee" "Telefon Email" "Time Time";
+}
+.cf7-form .name {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: Namee;
+}
+.cf7-form .telefon {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: Telefon;
+}
+.cf7-form .email {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: Email;
+}
+.cf7-form .time {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: Time;
+}
+.cf7-form input {
+  width: 100%;
+}
+
+.frm_forms .frm_image_options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.frm_forms .frm_image_options .frm_image_option {
+  margin: 0px !important;
+  flex-shrink: 0;
+}
+@media (max-width: 550px) {
+  .frm_forms .frm_image_options .frm_image_option {
+    flex-basis: calc(50% - 10px);
+  }
+}
+.frm_forms .frm_image_options .frm_opt_container {
+  margin: 0px;
+  justify-content: space-around;
+}
+.frm_forms .frm_image_options .frm_opt_container .frm_image_option_container {
+  border: none;
+  padding: 10px;
+}
+.frm_forms .frm_image_options .frm_opt_container .frm_image_option_container img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 /*# sourceMappingURL=main.css.map*/
