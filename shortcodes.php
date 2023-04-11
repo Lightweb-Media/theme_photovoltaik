@@ -68,7 +68,7 @@ function show_related_posts(){
     
         wp_reset_postdata();
     
-        echo $related_posts;
+        return $related_posts;
     }
 
 }
