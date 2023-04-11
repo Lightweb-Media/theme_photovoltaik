@@ -5,14 +5,11 @@ img {border-radius: 4px;}
     column-gap: 20px;
 }
 
-// Main Navigation 
-#sticky-navigation, .site-header{
-    border-bottom: 3px solid var(--accent);
-}
-
 // Main Container Paddings
-#sticky-navigation, .site-header{
+#sticky-navigation, #site-navigation{
     padding-inline: 20px;
+    border-bottom: 3px solid var(--accent);
+    .navigation-branding{margin-left: 0px;}
        
 }
 @media (max-width: calc($max-site-width + 40px)) {
@@ -119,6 +116,7 @@ img {border-radius: 4px;}
     .frm_opt_container{
         margin: 0px;
         justify-content: space-around;
+        width: 100%;
         .frm_image_option_container{
             border: none;
             padding: 10px;
