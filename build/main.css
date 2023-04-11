@@ -240,6 +240,7 @@ img {
 .frm_forms .frm_image_options .frm_opt_container .frm_image_option_container {
   border: none;
   padding: 10px;
+  cursor: pointer;
 }
 .frm_forms .frm_image_options .frm_opt_container .frm_image_option_container img {
   -o-object-fit: contain;
