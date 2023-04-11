@@ -70,15 +70,16 @@ img {border-radius: 4px;}
 .related-posts {
     display: flex;
     gap: 10px;
-    @media (max-width: 550px){
+    @media (max-width: 650px){
         flex-direction: column;
     }
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
 }
 
 .related-post {
     flex: 1;
     gap: 10px;
+
 }
 
 .cf7-form{
