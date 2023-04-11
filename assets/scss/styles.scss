@@ -67,6 +67,11 @@ img {border-radius: 4px;}
 }
 
 // Related Posts
+.related-posts-title{
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1.5em;
+}
 .related-posts {
     display: flex;
     gap: 10px;

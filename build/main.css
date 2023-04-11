@@ -170,6 +170,12 @@ img {
   display: none;
 }
 
+.related-posts-title {
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.5em;
+}
+
 .related-posts {
   display: flex;
   gap: 10px;
