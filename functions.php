@@ -21,24 +21,6 @@ function photo_enqueue_child_theme_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'photo_enqueue_child_theme_styles' );
 
-add_image_size( 'widget-slider-770', 770, 450, true );
-add_image_size( 'widget-slider-450', 450, 263, true );
-
-function add_custom_sizes_to_gutenberg( $sizes ) {
-  return array_merge( $sizes, [
-    'widget-slider-770' => __('Slider 770', 'photo'),
-    'widget-slider-450' => __('Slider 450', 'photo'),
-  ] );
-}
-add_filter( 'image_size_names_choose', 'add_custom_sizes_to_gutenberg' );
-
-
-// includes
-require_once PHOTO_THEME_PATH . '/classes/CheckedBy.php';
-add_action( 'init', function() {
-    new \Threek\CheckedBy;
-} );
-
 require_once PHOTO_THEME_PATH . '/shortcodes.php';
 
 
@@ -121,3 +103,64 @@ function my_extra_schema_field_mapping_articleBody( $schema, $data, $post ) {
 	}
 	return $schema;
 }
+
+
+
+
+
+// Local Avatar
+/**
+ * Use ACF image field as avatar
+ * @author Mike Hemberger
+ * @link http://thestizmedia.com/acf-pro-simple-local-avatars/
+ * @uses ACF Pro image field (tested return value set as Array )
+ */
+add_filter('get_avatar', 'lwm_profile_avatar', 10, 5);
+
+function lwm_profile_avatar( $avatar, $id_or_email, $size, $default, $alt ) {
+
+    $user = '';
+
+    // Get user by id or email
+    if ( is_numeric( $id_or_email ) ) {
+
+        $id   = (int) $id_or_email;
+        $user = get_user_by( 'id' , $id );
+
+    } elseif ( is_object( $id_or_email ) ) {
+
+        if ( ! empty( $id_or_email->user_id ) ) {
+            $id   = (int) $id_or_email->user_id;
+            $user = get_user_by( 'id' , $id );
+        }
+
+    } else {
+        $user = get_user_by( 'email', $id_or_email );
+    }
+
+    if ( ! $user ) {
+        return $avatar;
+    }
+
+    // Get the user id
+    $user_id = $user->ID;
+
+    // Get the file id
+    $image_id = get_user_meta($user_id, 'lwm_local_avatar', true); // CHANGE TO YOUR FIELD NAME
+
+    // Bail if we don't have a local avatar
+    if ( ! $image_id ) {
+        return $avatar;
+    }
+
+    // Get the file size
+    $image_url  = wp_get_attachment_image_src( $image_id, 'thumbnail' ); // Set image size by name
+
+    // Get the file url
+    $avatar_url = $image_url[0];
+    // Get the img markup
+    $avatar = '<img alt="' . $alt . '" src="' . $avatar_url . '" class="avatar avatar-' . $size . '" height="' . $size . '" width="' . $size . '"/>';
+    // Return our new avatar
+    return $avatar;
+}
+
