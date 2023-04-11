@@ -66,12 +66,14 @@ img {border-radius: 4px;}
     }
 }
 
+// Related Posts
 .related-posts {
     display: flex;
     gap: 10px;
     @media (max-width: 550px){
         flex-direction: column;
     }
+    margin-bottom: 20px;
 }
 
 .related-post {
