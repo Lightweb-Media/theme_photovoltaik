@@ -2,12 +2,16 @@
 
 // Related Posts (same Category)
 add_shortcode( 'related_posts','show_related_posts' );
-function show_related_posts(){
+function show_related_posts($atts){
+
+    $atts = shortcode_atts( array(
+        'posts_per_page' => 3,
+    ), $atts );
 
     $related = new WP_Query(
         array(
             'category__in'   => wp_get_post_categories( $post->ID ),
-            'posts_per_page' => 3,
+            'posts_per_page' => $atts['posts_per_page'],
             'post__not_in'   => array( $post->ID )
         )
     );
