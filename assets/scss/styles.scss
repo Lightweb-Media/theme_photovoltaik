@@ -18,7 +18,7 @@ img {border-radius: 4px;}
 
 
 /* Hide Submenu-Arrows in Main-Menu */
-@media (min-width: 769px) {
+@media (min-width: $mobile-menu-breakpoint) {
     #primary-menu .menu-item-has-children .dropdown-menu-toggle {
         display: none;
     }

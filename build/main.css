@@ -149,7 +149,7 @@ img {
   }
 }
 /* Hide Submenu-Arrows in Main-Menu */
-@media (min-width: 769px) {
+@media (min-width: 930px) {
   #primary-menu .menu-item-has-children .dropdown-menu-toggle {
     display: none;
   }
