@@ -2,9 +2,9 @@
 	"name": "theme_photovoltaik_sh",
 	"description": "theme_photovoltaik_sh Childtheme from generatepress",
 	"scripts": {
-		"dev": "wp-scripts start assets/scss/fonts/fonts.scss assets/js/main.js assets/js/pv-form-auto-next assets/js/calculator-toggle.js assets/js/backend/backend.js",
-		"build": "wp-scripts start assets/scss/fonts/fonts.scss assets/js/main.js assets/js/pv-form-auto-next assets/js/calculator-toggle.js assets/js/backend/backend.js",
-		"fonts": "wp-scripts start assets/scss/fonts/fonts.scss assets/js/main.js assets/js/pv-form-auto-next assets/js/calculator-toggle.js assets/js/backend/backend.js"
+		"dev": "wp-scripts start assets/scss/fonts/fonts.scss assets/js/main.js assets/js/pv-form-auto-next assets/js/calculator-toggle.js",
+		"build": "wp-scripts start assets/scss/fonts/fonts.scss assets/js/main.js assets/js/pv-form-auto-next assets/js/calculator-toggle.js",
+		"fonts": "wp-scripts start assets/scss/fonts/fonts.scss assets/js/main.js assets/js/pv-form-auto-next assets/js/calculator-toggle.js"
 	},
 	"author": "Rene Kutter",
 	"license": "GPL-2.0",
