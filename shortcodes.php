@@ -56,8 +56,7 @@ function show_cat_description($atts){
 
 // Aktuelles Jahr
 function current_year_shortcode() {
-    $jahr = date('Y');
-    return $jahr;
+    return date('Y');
 }
 add_shortcode('aktuelles_jahr', 'current_year_shortcode');
 
