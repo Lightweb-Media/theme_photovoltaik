@@ -27,7 +27,7 @@ function show_related_posts($atts){
             $related->the_post(); 
 
                 $related_posts .= sprintf(' <div class="related-post">
-                                            <a href="%s"</a>
+                                            <a href="%s">
                                             <img src="%s" />
                                             </a>
                                             </div>',
