@@ -277,4 +277,15 @@ img {
      object-fit: contain;
 }
 
+/* custom avatar */
+.custom-avatar {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+.custom-avatar img {
+  width: 100%;
+}
+
 /*# sourceMappingURL=main.css.map*/

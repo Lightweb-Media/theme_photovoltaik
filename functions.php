@@ -148,5 +148,12 @@ add_action( 'load-profile.php', function(){
 } );
 
 
+/**
+ * get custom author avatar
+ * 
+ */
+add_shortcode('custom_avatar', function() {
+	$avatar = get_the_author_meta('lwm_local_avatar');
 
-
+	return  '<div class="custom-avatar">' . wp_get_attachment_image( $avatar, 'thumbnail' ) . '</div>';
+});
