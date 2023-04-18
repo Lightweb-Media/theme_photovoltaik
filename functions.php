@@ -159,3 +159,16 @@ add_shortcode('custom_avatar', function() {
 
 	return  '<div class="custom-avatar">' . wp_get_attachment_image( $avatar, 'thumbnail' ) . '</div>';
 });
+
+/**
+ * dequeues
+ * 
+ */
+add_filter( 'should_load_separate_core_block_assets', '__return_true' );
+
+add_action( 'wp_head', function() {
+    if( empty( get_current_user_id() ) ) {
+        wp_dequeue_style('dashicons');
+    }
+
+}, 1 );
