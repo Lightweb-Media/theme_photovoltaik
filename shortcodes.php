@@ -27,12 +27,14 @@ function show_related_posts($atts){
             $related->the_post(); 
 
                 $related_posts .= sprintf(' <div class="related-post">
-                                            <a href="%s">
-                                            <img src="%s" />
+                                            <a href="%s" title="%s">
+                                            <img src="%s" alt="%s" />
                                             </a>
                                             </div>',
                                             get_permalink(get_the_ID()),
-                                            get_the_post_thumbnail_url(get_the_ID())
+                                            get_the_title(),
+                                            get_the_post_thumbnail_url(get_the_ID()),
+                                            get_the_title()
                                         );
             }
     
