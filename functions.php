@@ -18,7 +18,8 @@ function photo_enqueue_child_theme_styles() {
 	wp_enqueue_style( 'photo-fonts', PHOTO_THEME_URL . '/fonts/fonts.css', ['parent-style'], filemtime( PHOTO_THEME_PATH . '/fonts/fonts.css' ) );
 
     wp_enqueue_style( 'photo-style', PHOTO_THEME_URL . '/dist/main.css', ['parent-style'], filemtime( PHOTO_THEME_PATH . '/dist/main.css' ) );
-    wp_enqueue_script( 'photo-pv-form-auto-next', PHOTO_THEME_URL . '/dist/pv-form-auto-next.js', [], filemtime( PHOTO_THEME_PATH . '/dist/pv-form-auto-next.js' ), true );
+    
+	wp_enqueue_script( 'photo-pv-form-auto-next', PHOTO_THEME_URL . '/dist/pv-form-auto-next.js', [], filemtime( PHOTO_THEME_PATH . '/dist/pv-form-auto-next.js' ), true );
     wp_enqueue_script( 'photo-calculator-toggle', PHOTO_THEME_URL . '/dist/calculator-toggle.js', [], filemtime( PHOTO_THEME_PATH . '/dist/calculator-toggle.js' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'photo_enqueue_child_theme_styles' );
@@ -172,3 +173,17 @@ add_action( 'wp_head', function() {
     }
 
 }, 1 );
+
+/**
+ * gsc cls fix
+ * 
+ */
+add_action( 'wp_head', function() {
+?>
+	<style>
+		.pv-calculator {
+			display: none;
+		}
+	</style>
+<?php
+} );
