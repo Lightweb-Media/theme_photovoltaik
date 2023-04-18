@@ -12,8 +12,6 @@ package-lock.json
 
 generate-examples.php
 
-dist
-
 # Coverage directory used by tools like istanbul
 coverage
 
