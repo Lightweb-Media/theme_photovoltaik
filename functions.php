@@ -14,10 +14,13 @@ define( 'PHOTO_VERSION', '1.0.0' );
 
 function photo_enqueue_child_theme_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'photo-style', PHOTO_THEME_URL . '/build/main.css', ['parent-style'], filemtime( PHOTO_THEME_PATH . '/build/main.css' ) );
-	wp_enqueue_style( 'photo-fonts', PHOTO_THEME_URL . '/build/fonts.scss.css', ['parent-style'], filemtime( PHOTO_THEME_PATH . '/build/fonts.scss.css' ) );
-    wp_enqueue_script( 'photo-pv-form-auto-next', PHOTO_THEME_URL . '/build/pv-form-auto-next.js', [], filemtime( PHOTO_THEME_PATH . '/build/pv-form-auto-next.js' ), true );
-    wp_enqueue_script( 'photo-calculator-toggle', PHOTO_THEME_URL . '/build/calculator-toggle.js', [], filemtime( PHOTO_THEME_PATH . '/build/calculator-toggle.js' ), true );
+
+	wp_enqueue_style( 'photo-fonts', PHOTO_THEME_URL . '/fonts/fonts.css', ['parent-style'], filemtime( PHOTO_THEME_PATH . '/fonts/fonts.css' ) );
+
+    wp_enqueue_style( 'photo-style', PHOTO_THEME_URL . '/dist/main.css', ['parent-style'], filemtime( PHOTO_THEME_PATH . '/dist/main.css' ) );
+    
+	wp_enqueue_script( 'photo-pv-form-auto-next', PHOTO_THEME_URL . '/dist/pv-form-auto-next.js', [], filemtime( PHOTO_THEME_PATH . '/dist/pv-form-auto-next.js' ), true );
+    wp_enqueue_script( 'photo-calculator-toggle', PHOTO_THEME_URL . '/dist/calculator-toggle.js', [], filemtime( PHOTO_THEME_PATH . '/dist/calculator-toggle.js' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'photo_enqueue_child_theme_styles' );
 
@@ -148,5 +151,39 @@ add_action( 'load-profile.php', function(){
 } );
 
 
+/**
+ * get custom author avatar
+ * 
+ */
+add_shortcode('custom_avatar', function() {
+	$avatar = get_the_author_meta('lwm_local_avatar');
 
+	return  '<div class="custom-avatar">' . wp_get_attachment_image( $avatar, 'thumbnail' ) . '</div>';
+});
 
+/**
+ * dequeues
+ * 
+ */
+add_filter( 'should_load_separate_core_block_assets', '__return_true' );
+
+add_action( 'wp_head', function() {
+    if( empty( get_current_user_id() ) ) {
+        wp_dequeue_style('dashicons');
+    }
+
+}, 1 );
+
+/**
+ * gsc cls fix
+ * 
+ */
+add_action( 'wp_head', function() {
+?>
+	<style>
+		.pv-calculator {
+			display: none;
+		}
+	</style>
+<?php
+} ); 

@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./assets/scss/main.scss":
-/*!*******************************!*\
-  !*** ./assets/scss/main.scss ***!
-  \*******************************/
+/***/ "./assets/scss/fonts/fonts.scss":
+/*!**************************************!*\
+  !*** ./assets/scss/fonts/fonts.scss ***!
+  \**************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -56,13 +56,13 @@ __webpack_require__.r(__webpack_exports__);
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 !function() {
-/*!***************************!*\
-  !*** ./assets/js/main.js ***!
-  \***************************/
+/*!**********************************!*\
+  !*** ./assets/js/fonts/fonts.js ***!
+  \**********************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/main.scss */ "./assets/scss/main.scss");
+/* harmony import */ var _scss_fonts_fonts_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../scss/fonts/fonts.scss */ "./assets/scss/fonts/fonts.scss");
 
 }();
 /******/ })()
 ;
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=fonts.js.map

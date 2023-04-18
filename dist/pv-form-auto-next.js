@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",(()=>{document.querySelector(".pv-calculator").addEventListener("click",(e=>{"radio"===e.target.type&&setTimeout((function(){document.querySelector(".frm_button_submit").click()}),50)}))}));
