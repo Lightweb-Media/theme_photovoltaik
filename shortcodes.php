@@ -15,18 +15,31 @@ function show_related_posts($atts){
             'post__not_in'   => array( $post->ID )
         )
     );
+
+    $related_posts = '';
     
     if( $related->have_posts() ) { 
         
-        $related_posts = sprintf('  <div class="related-posts-title">%s</div>
-                                    <div class="related-posts">',
-                                    __("Ähnliche Beiträge", "photo")
-                                );
-    
+        ob_start();
+
+        ?>
+
+        <div class="related-posts-title"><?php _e("Ähnliche Beiträge", "photo"); ?></div>
+        <div class="related-posts">
+                  
+        <?php
         while( $related->have_posts() ) { 
             $related->the_post(); 
+            ?>
 
-                $related_posts .= sprintf(' <div class="related-post">
+            <div class="relared-post">
+                <a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
+                    <?php echo get_the_post_thumbnail(); ?>
+                </a>
+            </div>
+
+            <?php
+                /* $related_posts .= sprintf(' <div class="related-post">
                                             <a href="%s" title="%s">
                                             <img src="%s" alt="%s" />
                                             </a>
@@ -35,10 +48,13 @@ function show_related_posts($atts){
                                             get_the_title(),
                                             get_the_post_thumbnail_url(get_the_ID()),
                                             get_the_title()
-                                        );
+                                        ); */
             }
     
-        $related_posts .= '</div>';
+        echo '</div>';
+
+        $related_posts = ob_get_contents();
+        ob_end_clean();
     
         wp_reset_postdata();
     
