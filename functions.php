@@ -187,3 +187,30 @@ add_action( 'wp_head', function() {
 	</style>
 <?php
 } ); 
+
+add_shortcode( 'search', function() {
+	return get_search_query();
+} );
+
+add_filter( 'generateblocks_query_loop_args', function( $query_args, $attributes ) {
+    
+    if ( is_search() && !is_admin() ) {
+        return array_merge( $query_args, array(
+			's' => get_search_query(),
+		) );
+    }
+
+    return $query_args;
+
+}, 10, 2 );
+
+
+add_filter('render_block', function( $block_content, $block ) {
+	if ( $block['blockName'] === 'generateblocks/image' || $block['blockName'] === 'core/image' ) {
+		$new = $block_content;
+		$new = str_replace('<img', '<i></i><i></i><i></i><i></i><img', $new);
+		return $new;
+	}
+
+	return $block_content;
+}, 10, 2 );
